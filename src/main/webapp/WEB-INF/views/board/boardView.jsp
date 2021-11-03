@@ -8,22 +8,20 @@
 <title>boardView</title>
 </head>
 <script>
+
 	$j(document).ready(function() {
 		var formObj = $j("form[name='readForm']");
-
+		
 		$j(".delete_btn").on("click", function() {
 			formObj.attr("action", "/board/boardDelte.do");
 			formObj.attr("method", "post");
 			formObj.submit();
 		})
-
-		$j(".update_btn").on("click", function() {
-			formObj.attr("action", "/board/updateView.do");
-			formObj.attr("method", "get");
-			formObj.submit();
-		})
 	})
+	
+	
 </script>
+
 <body>
 
 	<table align="center">

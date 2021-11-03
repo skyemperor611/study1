@@ -99,9 +99,18 @@ public class BoardController {
 	@RequestMapping(value = "/board/boardDelte.do", method = RequestMethod.POST)
 	public String getDelete(BoardVo boardVO, RedirectAttributes rttr) throws Exception {
 
-		boardService.removeArticle(boardVO.getBoardNum());
+		int result = boardService.removeArticle(boardVO.getBoardNum());
+
+		if (result > 0) {
+			rttr.addFlashAttribute("msg", "success");
+
+		} else {
+			rttr.addFlashAttribute("msg", "fail");
+
+		}
 
 		return "redirect:/board/boardList.do";
+
 	}
 
 	// 게시판 수정뷰
