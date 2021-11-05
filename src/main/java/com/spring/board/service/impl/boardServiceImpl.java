@@ -55,22 +55,7 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public int boardInsert(BoardVo boardVo) throws Exception {
 		
-
-		
-		String boardTitle = boardVo.getBoardTitle();
-		String comment = boardVo.getBoardComment();
-		String[] titleArray = boardTitle.split(",");
-		String[] commentArray = comment.split(",");
-		
-		for(int i = 0; i < titleArray.length;i++) {
-			logger.info(titleArray[i]);
-			logger.info(commentArray[i]);
-			boardVo.setBoardTitle(titleArray[i]);
-			boardVo.setBoardComment(commentArray[i]);
-			logger.info(titleArray[i]);
-			logger.info(commentArray[i]);
-		}
-		
+	
 		return boardDao.boardInsert(boardVo);
 	}
 
