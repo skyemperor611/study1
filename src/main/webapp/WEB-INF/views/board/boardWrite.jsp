@@ -83,5 +83,9 @@
 	</form>
 
 	<input type="button" value="행추가" id="btnAction">
+	
+	
+	<button id='btn-add-row'>행 추가하기</button>
+<button id='btn-delete-row'>행 삭제하기</button>
 </body>
 </html>

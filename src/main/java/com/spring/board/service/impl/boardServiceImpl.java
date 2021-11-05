@@ -1,19 +1,24 @@
 package com.spring.board.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.spring.board.HomeController;
 import com.spring.board.dao.BoardDao;
 import com.spring.board.service.boardService;
 import com.spring.board.vo.BoardVo;
 import com.spring.board.vo.PageVo;
 
+
 @Service
 public class boardServiceImpl implements boardService{
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);	
 	@Autowired
 	BoardDao boardDao;
 	
@@ -49,7 +54,23 @@ public class boardServiceImpl implements boardService{
 	
 	@Override
 	public int boardInsert(BoardVo boardVo) throws Exception {
-		// TODO Auto-generated method stub
+		
+
+		
+		String boardTitle = boardVo.getBoardTitle();
+		String comment = boardVo.getBoardComment();
+		String[] titleArray = boardTitle.split(",");
+		String[] commentArray = comment.split(",");
+		
+		for(int i = 0; i < titleArray.length;i++) {
+			logger.info(titleArray[i]);
+			logger.info(commentArray[i]);
+			boardVo.setBoardTitle(titleArray[i]);
+			boardVo.setBoardComment(commentArray[i]);
+			logger.info(titleArray[i]);
+			logger.info(commentArray[i]);
+		}
+		
 		return boardDao.boardInsert(boardVo);
 	}
 

@@ -22,5 +22,6 @@ public interface boardService {
 	public int update(BoardVo boardVo) throws Exception;
 	
 	public BoardVo read(int boardNum) throws Exception;
-
+	
+	
 }
