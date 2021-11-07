@@ -46,6 +46,19 @@
 		});
 
 	});
+
+</script>
+<script type="text/javascript">
+$j(document).ready(function() {
+$j(document).on("click","button[name=delStaff]",function(){
+    
+    var trHtml = $j(this).parent().parent();
+    var trHtml1 = $j(this).parent().parent().prev();
+    trHtml.remove(); //tr 테그 삭제
+    trHtml1.remove();
+    
+});
+});
 </script>
 <body>
 	<form class="boardWrite">
@@ -62,11 +75,18 @@
 								<td width="120" align="center">Title</td>
 								<td width="400"><input name="boardTitle" type="text"
 									size="50" value="${board.boardTitle}"></td>
+									
 							</tr>
 							<tr class="commenttr">
+
+								
 								<td height="300" align="center" class="commenttd">Comment</td>
 								<td valign="top"><textarea name="boardComment" rows="20"
 										cols="55">${board.boardComment}</textarea></td>
+										<td>	
+								<button class="btn btn-default" name="delStaff">삭제</button>
+								</td>
+								
 							</tr>
 						</tbody>
 						<tr>
@@ -83,9 +103,10 @@
 	</form>
 
 	<input type="button" value="행추가" id="btnAction">
-	
-	
+
+
+
+
 	<button id='btn-add-row'>행 추가하기</button>
-<button id='btn-delete-row'>행 삭제하기</button>
 </body>
 </html>
